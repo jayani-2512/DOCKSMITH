@@ -1,0 +1,6 @@
+FROM base-shell:latest
+WORKDIR /app
+ENV GREETING=Hello
+COPY . /app
+RUN /bin/sh -lc "echo built-ok > /app/build.txt"
+CMD ["/bin/sh", "-lc", "echo \"$GREETING from Docksmith\" && cat /app/build.txt"]
